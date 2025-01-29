@@ -1,3 +1,19 @@
-[gd_scene format=3 uid="uid://dvrs6lrrorulc"]
+[gd_scene load_steps=3 format=3 uid="uid://dvrs6lrrorulc"]
+
+[ext_resource type="FontFile" uid="uid://do1mquvm2f7wo" path="res://assets/fonts/CinzelDecorative-Bold.ttf" id="1_dgjqm"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_47g8k"]
+font = ExtResource("1_dgjqm")
+font_size = 72
 
 [node name="Main" type="Node2D"]
+
+[node name="Label" type="Label" parent="."]
+offset_left = 300.0
+offset_top = 223.0
+offset_right = 885.0
+offset_bottom = 419.0
+text = "THIS IS A TEST!"
+label_settings = SubResource("LabelSettings_47g8k")
+horizontal_alignment = 1
+vertical_alignment = 1
