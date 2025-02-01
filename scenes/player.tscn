@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://er48f4sgnnyd"]
+
+[ext_resource type="Texture2D" uid="uid://cfvyrtvtujx07" path="res://assets/sprites/paddle_sprites.png" id="1_p6q4t"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d8x1k"]
+size = Vector2(18, 98)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b1hbq"]
+atlas = ExtResource("1_p6q4t")
+region = Rect2(0, 0, 20, 100)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_v0bt7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b1hbq")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Player" type="CharacterBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -50)
+shape = SubResource("RectangleShape2D_d8x1k")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -50)
+sprite_frames = SubResource("SpriteFrames_v0bt7")
+autoplay = "default"
+frame_progress = 0.804185

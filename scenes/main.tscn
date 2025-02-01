@@ -1,9 +1,13 @@
-[gd_scene load_steps=6 format=3 uid="uid://dvrs6lrrorulc"]
+[gd_scene load_steps=9 format=3 uid="uid://dvrs6lrrorulc"]
 
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_ilphx"]
 [ext_resource type="FontFile" uid="uid://do1mquvm2f7wo" path="res://assets/fonts/CinzelDecorative-Bold.ttf" id="2_7kso3"]
+[ext_resource type="PackedScene" uid="uid://er48f4sgnnyd" path="res://scenes/player.tscn" id="2_npha6"]
+[ext_resource type="Script" path="res://scripts/player.gd" id="2_qpr60"]
 [ext_resource type="Script" path="res://scripts/button_left.gd" id="3_qlkoj"]
 [ext_resource type="Script" path="res://scripts/button_right.gd" id="4_jdfdu"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_lvtit"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_47g8k"]
 font = ExtResource("2_7kso3")
@@ -14,6 +18,20 @@ font_size = 72
 [node name="Game Manager" type="Node" parent="."]
 unique_name_in_owner = true
 script = ExtResource("1_ilphx")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(145, -80)
+zoom = Vector2(4, 4)
+
+[node name="Player" parent="." instance=ExtResource("2_npha6")]
+position = Vector2(144, -30)
+script = ExtResource("2_qpr60")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(144, -30)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("WorldBoundaryShape2D_lvtit")
 
 [node name="Label" type="Label" parent="."]
 offset_left = 300.0
